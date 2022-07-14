@@ -48,8 +48,8 @@ public class Jugador {
         return posicion;
     }
 
-    public void setPosicion(int posicion) {
-        this.posicion = posicion;
+    public void setPosicion(int pos) {
+        this.posicion += pos;
     }
 
     public boolean isBancarota() {
@@ -58,5 +58,12 @@ public class Jugador {
 
     public boolean isPreso() {
         return posicion == 10;
+    }
+    
+    @Override
+    public String toString() {
+        String string = "";
+        string += "Jugador -> [ Ficha: " + this.ficha + ", Dinero: " + this.dinero + ", Posicion: " + this.posicion + " ]";
+        return string;
     }
 }
