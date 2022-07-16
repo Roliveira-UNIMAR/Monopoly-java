@@ -4,21 +4,18 @@
  * and open the template in the editor.
  */
 package main;
-import models;
-import java.util.Scanner;
+
+import models.*;
 
 /**
  *
  * @author Richard Rivera - 28.570.753
+ * @author Rodrigo Oliveira - 29.655.609
  */
 public class Main {
 
 
     public static void main(String[] args) {
-        
-        Scanner leer = new Scanner(System.in);
-        
-        
         boolean salir = false;
         int op = 0;
         
