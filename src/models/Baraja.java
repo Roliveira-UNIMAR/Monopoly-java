@@ -17,14 +17,14 @@ public class Baraja {
     private ArrayList<Carta> baraja = new ArrayList<>();
 
     public Carta tomarCarta(){
-        barajear();
-        Carta carta = baraja.removeFirst();
+        Carta carta;
+        carta = baraja.remove(0);
         ponerFinal(carta);
         return carta;
     }
 
     public void ponerFinal(Carta carta){
-        baraja.addLast(carta);
+        baraja.add(carta);
     }
 
     public void barajear(){
