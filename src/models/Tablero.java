@@ -15,6 +15,7 @@ public class Tablero {
     public static void iniciar() {
         Propiedad[] propiedades = Archivo.getPropiedades();
         
+        // Nota falta crear varias clases para hacer que esto funcione
         tablero[0] = new Salida();
         tablero[1] = propiedades[0];
         tablero[2] = new ArcaComunal(2);
@@ -53,7 +54,7 @@ public class Tablero {
         tablero[34] = new Ferrocaril(34, "FERROCARRIL VÍA RÁPIDA");
         tablero[35] = new Fortuna(35);
         tablero[36] = propiedades[20];
-        tablero[37] = new Impuesto(36, "IMPUESTO SOBRE POSESIONES DE LUJO PÁGUENSE", 100);
+        tablero[37] = new Impuesto(37, "IMPUESTO SOBRE POSESIONES DE LUJO PÁGUENSE", 100);
         tablero[38] = propiedades[21];  
     }
 }
