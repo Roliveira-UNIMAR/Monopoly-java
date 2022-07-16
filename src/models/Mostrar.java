@@ -68,4 +68,8 @@ public class Mostrar {
         System.out.println("El jugador "+ ficha + " ha ganado la partida");
     }
 
+    public static void carta(String description) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 }
