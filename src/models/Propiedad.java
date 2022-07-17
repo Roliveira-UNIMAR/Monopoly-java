@@ -50,8 +50,8 @@ public class Propiedad extends Casilla {
     }
     
     public void ofertar(Jugador actualJugador){
-        Mostrar.msj("Le gustaria comprar esta propiedad " + nombre + " por " + precio + "$");
-        int op = Leer.opcion(2, "1. Si\t\t2. No");
+        Mostrar.texto("Te gustaria comprar esta propiedad: " + nombre + " por " + precio + "$");
+        int op = Leer.opcion(2, "1. Si\t\t2. No ");
         if(op == 1){
             comprado(actualJugador);
         }

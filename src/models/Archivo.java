@@ -23,7 +23,7 @@ public class Archivo {
         ArrayList<ColorPropiedad> propiedades = new ArrayList<>();
         ColorPropiedad tempCP = new ColorPropiedad();
         try {
-            Scanner leer = new Scanner(new FileReader("propiedades.txt"));
+            Scanner leer = new Scanner(new FileReader("src\\models\\propiedades.txt"));
             int pos = 0;
             String n = null;
             int p = 0;
@@ -37,9 +37,10 @@ public class Archivo {
                 String line = leer.nextLine();
                 String[] separado = line.split(":");
                 pos = Integer.parseInt(separado[0]);
-                p = Integer.parseInt(separado[1]);
+                n = separado[1];
+                p = Integer.parseInt(separado[2]);
                 for (int i = 0; i < 6; i++) {
-                    r[i] = Integer.parseInt(separado[2 + i]); 
+                    r[i] = Integer.parseInt(separado[3 + i]); 
                 }
                 cos = Integer.parseInt(separado[9]);
                 hipo = Integer.parseInt(separado[10]);

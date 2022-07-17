@@ -36,7 +36,7 @@ public class ColorPropiedad extends Propiedad {
         getPropietario().setDinero(-costoCasa);
         cantCasas++;
         if(cantCasas == 5){
-            Mostrar.msj("Compraste un hotel en " + nombre + " por 4 casas + " + costoCasa + "$");
+            Mostrar.texto("Compraste un hotel en " + nombre + " por 4 casas + " + costoCasa + "$");
         } else {
             System.out.println("Compraste un casa en " + nombre + " por " + + costoCasa + "$");
         }  
@@ -71,9 +71,9 @@ public class ColorPropiedad extends Propiedad {
     public void hacer(Jugador actualJugador) {
         if (propietario == actualJugador) {
            // No hacer nada
-        } else if ((!hipotecada) && (propietario != actualJugador)) {
-            Mostrar.msj(actualJugador.getNombre() + " paga a " + propietario.getNombre() + " " + getRenta() + "$ de renta");
-                actualJugador.pagar(propietario, getRenta());
+        } else if ((!hipotecada) && (propietario != null)) {
+            Mostrar.texto(actualJugador.getNombre() + " paga a " + propietario.getNombre() + " " + getRenta() + "$ de renta");
+            actualJugador.pagar(propietario, getRenta());
         } else {
             ofertar(actualJugador);
         } 

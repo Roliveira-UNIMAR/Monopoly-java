@@ -42,8 +42,8 @@ public class Ferrocarril extends Propiedad {
     public void hacer(Jugador actualJugador) {
         if(propietario == actualJugador) {
            // No hacer nada
-        } else if ((!hipotecada) && (propietario != actualJugador)) {
-            Mostrar.msj(actualJugador.getNombre() + " paga a " + propietario.getNombre() + " " + getRenta() + "$ de renta");
+        } else if ((!hipotecada) && (propietario != null)) {
+            Mostrar.texto(actualJugador.getNombre() + " paga a " + propietario.getNombre() + " " + getRenta() + "$ de renta");
             actualJugador.pagar(propietario, getRenta());
         } else {
             ofertar(actualJugador);

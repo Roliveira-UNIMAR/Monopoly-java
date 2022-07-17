@@ -24,7 +24,7 @@ public class Mostrar {
     }
     
     public static void menuPrincipal(){
-        System.out.println("\n\tMONOPOLY");
+        System.out.println("\n\tMONOPOLY\n");
         System.out.println("1. Iniciar Juego");
         System.out.println("2. Mostrar Reglas Basicas");
         System.out.println("3. Salir");
@@ -35,29 +35,29 @@ public class Mostrar {
     }
     
     public static void menuUsuario(){
-        System.out.println("\n\tMenu");
-        System.out.println("\t1. Tirar dado  y avanzar");
-        System.out.println("\t2. Mostar Estado");
-        System.out.println("\t3. Comprar casa");
-        System.out.println("\t4. Hipoteca");
+        System.out.println("\n\tMenu Usuario\n");
+        System.out.println("1. Tirar dado  y avanzar");
+        System.out.println("2. Mostar Estado");
+        System.out.println("3. Comprar casa");
+        System.out.println("4. Hipoteca");
     }
     
     public static void menuCarcel(){
-        System.out.println("\n\tMenu");
-        System.out.println("\t1. Tirar dado para salir");
-        System.out.println("\t2. Pagar 50$ para salir");
-        System.out.println("\t3. Usar tarjeta");
-        System.out.println("\t4. Mostar Estado");
-        System.out.println("\t5. Comprar casa");
-        System.out.println("\t6. Hipoteca");
+        System.out.println("\n\tMenu Carcel\n");
+        System.out.println("1. Tirar dado para salir");
+        System.out.println("2. Pagar 50$ para salir");
+        System.out.println("3. Usar tarjeta");
+        System.out.println("4. Mostar Estado");
+        System.out.println("5. Comprar casa");
+        System.out.println("6. Hipoteca");
     }
     
     public static void propiedad(ColorPropiedad propiedad){
         System.out.println(propiedad.toString());
     }
     
-    public static void msj(String msj) {
-        System.out.println("\n" + msj);
+    public static void texto(String texto) {
+        System.out.println("\n" + texto);
     }
 
     public static void salida() {
@@ -72,10 +72,10 @@ public class Mostrar {
 
     public static void crearJuador(int n, String[] disponibles) {
         System.out.println("\n\tCreando Jugador " + n);
-        System.out.println("\nSeleciona una ficha " + n);
+        System.out.println("\nSeleciona una ficha ");
         for (int i = 0; i < disponibles.length; i++) {
             if (disponibles[i] != null) {
-                System.out.println((i + 1) + disponibles[i]);
+                System.out.println((i + 1) + ". " + disponibles[i]);
             }
         }
         

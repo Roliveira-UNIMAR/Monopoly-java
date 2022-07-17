@@ -10,13 +10,13 @@ public class Carcel {
     
     public static void enviarACarcel(Jugador jugador) {
         jugador.enCarcel = true;
-        Mostrar.msj("Ahora estás en la cárcel durante los próximos turnos");
+        Mostrar.texto("Ahora estás en la cárcel durante los próximos turnos");
         jugador.moverA(10);
     }
 
     public static void carcelTurno(Jugador actualJugador) {
         actualJugador.turnosCarcel++;
-        Mostrar.msj("Turnos en carcel: " + actualJugador.turnosCarcel);
+        Mostrar.texto("Turnos en carcel: " + actualJugador.turnosCarcel);
         int op;
         do {
             Mostrar.menuCarcel();
@@ -25,18 +25,19 @@ public class Carcel {
                 case 1:
                     if (actualJugador.turnosCarcel <= 3) { 
                         Dado.lanzar();
+                        Mostrar.texto("Obtuviste al lanzar los dados: " + Dado.dado1 + " " + Dado.dado2 + "= " + Dado.getResultado());
                         if (Dado.isDoble()) {
                             actualJugador.enCarcel = false;
-                            Mostrar.msj("Saliste de la carcel, por doble");
+                            Mostrar.texto("Saliste de la carcel, por doble");
                             actualJugador.mover(Dado.getResultado());                            
                         } else {
                             if (actualJugador.turnosCarcel < 3) {
-                                Mostrar.msj("Se cobraron 50$ y sales de la carcel");
+                                Mostrar.texto("Se cobraron 50$ y sales de la carcel");
                                 actualJugador.enCarcel = false;
                                 actualJugador.setDinero(-50);
                                 actualJugador.mover(Dado.getResultado());
                             } else {
-                                Mostrar.msj("Sigues en la carcel"); 
+                                Mostrar.texto("Sigues en la carcel"); 
                             }   
                         }
                     }
@@ -49,9 +50,9 @@ public class Carcel {
                     if (actualJugador.cartasSalirCarcel > 0) {
                         actualJugador.enCarcel = false;
                         actualJugador.cartasSalirCarcel--;
-                        Mostrar.msj("Saliste de la carcel, por tarjeta");
+                        Mostrar.texto("Saliste de la carcel, por tarjeta");
                     } else {
-                         Mostrar.msj("No posees tarjeta SALIR DE LA CARCEL GRATIS");
+                         Mostrar.texto("No posees tarjeta SALIR DE LA CARCEL GRATIS");
                     }
                     break;    
                 case 4:
@@ -60,7 +61,7 @@ public class Carcel {
                 case 5:
                     ArrayList<ColorPropiedad> pHabitables = actualJugador.getPropiedadesHabitables();
                     if (pHabitables.isEmpty()) {
-                        Mostrar.msj("No posees ninguna propiedad donde puedas construir casa");
+                        Mostrar.texto("No posees ninguna propiedad donde puedas construir casa");
                     } else {
                         Mostrar.colorPropiedad(pHabitables);
                         int opc = Leer.opcion(pHabitables.size(), "Escoje una propiedad: ");
@@ -71,7 +72,7 @@ public class Carcel {
                 case 6:
                     ArrayList<Propiedad> pSinCasa = actualJugador.getPropiedadesSinCasas();
                     if (pSinCasa.isEmpty()) {
-                        Mostrar.msj("No posees ninguna propiedad que puedas hipotecar");
+                        Mostrar.texto("No posees ninguna propiedad que puedas hipotecar");
                     } else {
                         Mostrar.propiedad(pSinCasa);
                         int opc = Leer.opcion(pSinCasa.size(), "Escoje una propiedad: ");

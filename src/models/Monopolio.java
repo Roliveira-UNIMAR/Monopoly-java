@@ -21,11 +21,13 @@ public class Monopolio {
             do {
                 Mostrar.crearJuador(i, disponibles);
                 int op = Leer.opcion(4, "Elija una ficha: ");
-                if (disponibles[op - 1] != null ) {
-                    nuevo = new Jugador(FICHAS[op - 1]);
-                    disponibles[op - 1] = null;
-                    jugadores.add(nuevo);
-                    fracaso = false;
+                if (op != -1) {
+                    if (disponibles[op - 1] != null ) {
+                        nuevo = new Jugador(FICHAS[op - 1]);
+                        disponibles[op - 1] = null;
+                        jugadores.add(nuevo);
+                        fracaso = false;
+                    }
                 }
             } while (fracaso);
         }
@@ -34,21 +36,22 @@ public class Monopolio {
     
     public static void turno(Jugador actualJugador){
         int nDobles = 0;
-        Mostrar.msj(actualJugador.getNombre() + " es tu turno!");
+        Mostrar.texto(actualJugador.getNombre() + " es tu turno!");
         if (actualJugador.enCarcel) {
             Carcel.carcelTurno(actualJugador);
         } 
         if (!actualJugador.enCarcel) {
             int op;
             do {
-                Mostrar.menuCarcel();
+                Mostrar.menuUsuario();
                 op = Leer.opcion(5, "Escoja una opcion: ");
                 switch (op) {
                     case 1:
-                        Mostrar.msj("Posicion: " + Tablero.getActualCasilla(actualJugador).getNombre());
+                        Mostrar.texto("Posicion: " + Tablero.getActualCasilla(actualJugador).getNombre());
                         do{
                             nDobles++;
                             Dado.lanzar();
+                            Mostrar.texto("Obtuviste al lanzar los dados: " + Dado.dado1 + " + " + Dado.dado2 + " = " + Dado.getResultado());
                             actualJugador.mover(Dado.getResultado());
                             if (nDobles == 3){
                                 Carcel.enviarACarcel(actualJugador);
@@ -56,12 +59,12 @@ public class Monopolio {
                         } while ((nDobles < 3) && (Dado.isDoble()));
                         break;
                     case 2:
-                        actualJugador.toString();
+                        Mostrar.texto(actualJugador.toString());
                         break;
                     case 3:
                         ArrayList<ColorPropiedad> pHabitables = actualJugador.getPropiedadesHabitables();
                         if (pHabitables.isEmpty()) {
-                            Mostrar.msj("No posees ninguna propiedad donde puedas construir casa");
+                            Mostrar.texto("No posees ninguna propiedad donde puedas construir casa");
                         } else {
                             Mostrar.colorPropiedad(pHabitables);
                             int opc = Leer.opcion(pHabitables.size(), "Escoje una propiedad: ");
@@ -72,7 +75,7 @@ public class Monopolio {
                     case 4:
                         ArrayList<Propiedad> pSinCasa = actualJugador.getPropiedadesSinCasas();
                         if (pSinCasa.isEmpty()) {
-                            Mostrar.msj("No posees ninguna propiedad que puedas hipotecar");
+                            Mostrar.texto("No posees ninguna propiedad que puedas hipotecar");
                         } else {
                             Mostrar.propiedad(pSinCasa);
                             int opc = Leer.opcion(pSinCasa.size(), "Escoje una propiedad: ");

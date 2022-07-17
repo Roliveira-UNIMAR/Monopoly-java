@@ -53,12 +53,12 @@ public class Jugador {
     }
     
     private void bancarrota(int faltaDinero){
-        Mostrar.msj("Jugador: " + this.getNombre());
-        Mostrar.msj("Te faltan " + faltaDinero + "$");
+        Mostrar.texto("Jugador: " + this.getNombre());
+        Mostrar.texto("Te faltan " + faltaDinero + "$");
         ArrayList<Propiedad> pSinCasa = getPropiedadesSinCasas();
         if (pSinCasa.isEmpty()) {
-            Mostrar.msj("No posees ninguna propiedad que puedas hipotecar");
-            Mostrar.msj("Qudaste en la bancarrota");
+            Mostrar.texto("No posees ninguna propiedad que puedas hipotecar");
+            Mostrar.texto("Qudaste en la bancarrota");
         } else {
             Mostrar.propiedad(pSinCasa);
             int opc = Leer.opcion(pSinCasa.size(), "Escoje una propiedad: ");
@@ -91,14 +91,14 @@ public class Jugador {
     }
     
     public void mover(int pasos) {
-        posicion += pasos;
-        boolean pasaPorSalida = posicion >= 40;
+        this.posicion += pasos;
+        boolean pasaPorSalida = (this.posicion >= 40);
         if (pasaPorSalida) {
-            Mostrar.msj(nombre + " pasaste por \"SALIDA\" y cobrate 200$ de sueldo");
-            dinero += 200;
-            posicion -= 40;
+            Mostrar.texto(nombre + " pasaste por \"SALIDA\" y cobrate 200$ de sueldo");
+            this.dinero += 200;
+            this.posicion -= 40;
         }
-        Mostrar.msj("Ahora estas en " + Tablero.getActualCasilla(this));
+        Mostrar.texto("Ahora estas en " + Tablero.getActualCasilla(this).getNombre());
         Tablero.getActualCasilla(this).hacer(this);
     }
     
@@ -288,7 +288,7 @@ public class Jugador {
                 + "Propiedades: " + propiedades.size()  + "\n"
                 + "Calles: " + getCantCalles()  + "\n"
                 + "Ferrocariles: " + getCantFerrocarriles()  + "\n"
-                + "Calles: " + getCantUtilidades()  + "\n";
+                + "Utilidades: " + getCantUtilidades()  + "\n";
         return string;
     }
 }
