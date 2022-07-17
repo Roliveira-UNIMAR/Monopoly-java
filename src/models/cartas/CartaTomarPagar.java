@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package models.cartas;
 
 import models.Jugador;
@@ -21,8 +16,8 @@ public class CartaTomarPagar extends Carta {
     }
 
     public static String crearTomarPagar(int cant, String descrip) {
-        String tomarMsj = descrip + ". Toma " + cant + "$";
-        String pagarMsj = descrip + ". Paga " + -cant + "$";
+        String tomarMsj = descrip + ". TOMA " + cant + "$";
+        String pagarMsj = descrip + ". PAGA " + -cant + "$";
         return (cant > 0) ? tomarMsj : pagarMsj;
     }
     
