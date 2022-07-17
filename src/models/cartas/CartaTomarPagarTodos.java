@@ -1,3 +1,8 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package models.cartas;
 
 import java.util.ArrayList;
@@ -18,7 +23,7 @@ public class CartaTomarPagarTodos extends CartaTomarPagar {
     }
 
     protected static String crearMsj(int cant, String descrip) {
-        return CartaTomarPagar.crearTomarPagar(cant, descrip) + ((cant > 0) ? " DE" : " A") + " TODOS LOS JUGADORES";
+        return CartaTomarPagar.crearTomarPagar(cant, descrip) + ((cant > 0) ? " de todos los jugadores" : " a todo jugador");
     }
 
     @Override
