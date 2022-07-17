@@ -1,13 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package models;
 
 /**
  *
  * @author Rodrigo Oliveira - 29.655.609
+ * @author Shaenndry Carreño - 30.299.949
+ * @author Edgar Ruiz - 30.065.695
  */
 public abstract class Casilla {
     int posicion;
@@ -38,4 +35,6 @@ public abstract class Casilla {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
+    
+    public abstract void hacer(Jugador actualJugador);
 }
