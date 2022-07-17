@@ -11,7 +11,6 @@ public class ColorPropiedad extends Propiedad {
     private int rentas[];
     private int cantCasas;
     private int costoCasa;
-    private int costoHipoteca;
     
     public ColorPropiedad() {
         super();
@@ -19,16 +18,14 @@ public class ColorPropiedad extends Propiedad {
         this.rentas = new int[6];
         this.cantCasas = 0;
         this.costoCasa = 0;
-        this.costoHipoteca = 0;
     }
     
-    public ColorPropiedad(int pos, String n, int p, int r, int r1, int r2, int r3, int r4, int r5, int cos, int hipo, Grupo g) {
-        super(pos, n, p);
+    public ColorPropiedad(int pos, String n, int p, int[] r, int cos, int hipo, Grupo g) {
+        super(pos, n, p, hipo);
         this.grupo = g;
-        this.rentas = new int[] {r, r1, r2, r3, r4, r5};
+        this.rentas = r;
         this.cantCasas = 0;
         this.costoCasa = cos;
-        this.costoHipoteca = hipo;
     }
 
      public Grupo getGrupo() {
@@ -70,10 +67,6 @@ public class ColorPropiedad extends Propiedad {
         return this.costoCasa;
     }
 
-    public int getCostoHipoteca() {
-        return this.costoHipoteca;
-    }
-
     @Override
     public void hacer(Jugador actualJugador) {
         if (propietario == actualJugador) {
@@ -96,7 +89,7 @@ public class ColorPropiedad extends Propiedad {
                 + "Con 3 Casa: " + this.rentas[3] + "$" + "\n"
                 + "Con 4 Casa: " + this.rentas[4] + "$" + "\n"
                 + "Con Hotel: " + this.rentas[5] + "$" + "\n\n"
-                + "Hipoteca: " + this.costoHipoteca + "$" + "\n\n"
+                + "Hipoteca: " + this.valorHipoteca + "$" + "\n\n"
                 + "Las Casa cuestan: " + this.costoCasa + "$" + "\n"
                 + "El Hotel cuesta: 4 casas + " + this.costoCasa + "$";
         return string;

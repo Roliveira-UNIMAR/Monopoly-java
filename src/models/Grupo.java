@@ -14,9 +14,9 @@ public enum Grupo {
     VERDE(3),
     AZUL(2);
 
-    public final int maxEnGrupo;
+    public final int maxGrupo;
     
-    Grupo (int maxEnGrupo){
-        this.maxEnGrupo = maxEnGrupo;
+    Grupo (int maxGrupo){
+        this.maxGrupo = maxGrupo;
     }
 }

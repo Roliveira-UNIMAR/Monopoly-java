@@ -1,12 +1,14 @@
 package models;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author @author Richard Rivera - 28.570.753
  */
 public class Mostrar {
     
-    public static void ReglasBasicas(){    
+    public static void reglasBasicas(){    
         System.out.println("\n\tREGLAS BASICAS DEL JUEGO");
         System.out.println("1. Comenzando con la Banca, cada jugador lanza los dados. El jugador que logre el mayor puntaje sale de casilla de inicio.");
         System.out.println("2. Luego cada jugador inicia su ficha en la esquina de \"salida\", lanza los dados y mueve el número de espacios indicados por los dados.");
@@ -21,7 +23,7 @@ public class Mostrar {
         System.out.println("11. ¡Los jugadores en bancarrota deben retirarse del juego y el último jugador que quede en el juego es el ganador!"); 
     }
     
-    public static void MenuPrincipal(){
+    public static void menuPrincipal(){
         System.out.println("\n\tMONOPOLY");
         System.out.println("1. Iniciar Juego");
         System.out.println("2. Mostrar Reglas Basicas");
@@ -29,7 +31,7 @@ public class Mostrar {
     }
     
     public static void error(String msj) {
-        System.out.println("\n\tError: " + msj);
+        System.out.println("\nError: " + msj);
     }
     
     public static void menuUsuario(){
@@ -40,35 +42,61 @@ public class Mostrar {
         System.out.println("\t4. Hipoteca");
     }
     
+    public static void menuCarcel(){
+        System.out.println("\n\tMenu");
+        System.out.println("\t1. Tirar dado para salir");
+        System.out.println("\t2. Pagar 50$ para salir");
+        System.out.println("\t3. Usar tarjeta");
+        System.out.println("\t4. Mostar Estado");
+        System.out.println("\t5. Comprar casa");
+        System.out.println("\t6. Hipoteca");
+    }
+    
     public static void propiedad(ColorPropiedad propiedad){
         System.out.println(propiedad.toString());
     }
-        
-     public static void propiedadComprada(String propiedad) {
-        System.out.println("La propiedad " + propiedad + " ha sido comparada exitosamente");
-    }
     
-    public static void propiedadDisponible(boolean disponible){
-        if (disponible) {
-            System.out.println("Esta propiedad esta en venta.");
-        } else {
-            System.out.println("Esta propiedad no esta en venta."); 
+    public static void msj(String msj) {
+        System.out.println("\n" + msj);
+    }
+
+    public static void salida() {
+        System.out.print("\n\tHa salido del sistema");
+        for (int i = 1; i <= 3; i++) {
+            System.out.print(".");
+            try {
+                Thread.sleep(1000); 
+            } catch(InterruptedException ie) {}
         }
     }
-    
-    public static void carta(){
+
+    public static void crearJuador(int n, String[] disponibles) {
+        System.out.println("\n\tCreando Jugador " + n);
+        System.out.println("\nSeleciona una ficha " + n);
+        for (int i = 0; i < disponibles.length; i++) {
+            if (disponibles[i] != null) {
+                System.out.println((i + 1) + disponibles[i]);
+            }
+        }
         
+    }
+
+    public static void colorPropiedad(ArrayList<ColorPropiedad> pHabitables) {
+        System.out.println("\nTienes estas propiedades: ");
+        for (int i = 0; i < pHabitables.size(); i++) {
+            System.out.println(i + ". " + pHabitables.get(i).getNombre());   
+        }
+    }
+
+    public static void propiedad(ArrayList<Propiedad> pSinCasa) {
+        System.out.println("\nTienes estas propiedades: ");
+        for (int i = 0; i < pSinCasa.size(); i++) {
+            System.out.println(i + ". " + pSinCasa.get(i).getNombre());   
+        }
     }
 
     public static void carta(String description) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public static void msj(String msj) {
-        System.out.println(msj);
-    }
-
-    static void hipoteca(Jugador aThis) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("\nTomastes una tarjeta y dice: ");
+        System.out.println(description);
     }
 }

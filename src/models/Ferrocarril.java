@@ -6,14 +6,9 @@ package models;
  * @author Rodrigo Oliveira 29.655.609
  */
 public class Ferrocarril extends Propiedad {
-    private final int costoHipoteca = 100;
-    
-    public Ferrocarril(){
-        super();
-    }
-    
+
     public Ferrocarril(int pos, String n) {
-        super(pos, n, 200);
+        super(pos, n, 200, 100);
     }
     
     public int getRenta() {
@@ -30,10 +25,6 @@ public class Ferrocarril extends Propiedad {
         }
         return renta;
     }
-
-    public int getCostoHipoteca() {
-        return this.costoHipoteca;
-    }
     
     @Override
     public String toString() {
@@ -43,7 +34,7 @@ public class Ferrocarril extends Propiedad {
                 + "Con 2 Ferrocarriles: 50$" + "\n"
                 + "Con 3 Ferrocarriles: 100$" + "\n"
                 + "Con 4 Ferrocarriles: 200$" + "\n"
-                + "Hipoteca: " + this.costoHipoteca + "$" + "\n\n";
+                + "Hipoteca: " + this.valorHipoteca + "$" + "\n\n";
         return string;
     }
 
@@ -53,7 +44,7 @@ public class Ferrocarril extends Propiedad {
            // No hacer nada
         } else if ((!hipotecada) && (propietario != actualJugador)) {
             Mostrar.msj(actualJugador.getNombre() + " paga a " + propietario.getNombre() + " " + getRenta() + "$ de renta");
-                actualJugador.pagar(propietario, getRenta());
+            actualJugador.pagar(propietario, getRenta());
         } else {
             ofertar(actualJugador);
         }

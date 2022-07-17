@@ -13,11 +13,11 @@ import java.util.Collections;
 public class Baraja {
     private ArrayList<Carta> baraja = new ArrayList<>();
 
-    public Carta tomarCarta(Jugador jugador){
+    public void tomarCarta(Jugador jugador){
         Carta carta;
         carta = baraja.remove(0);
         ponerAbajo(carta);
-        return carta;
+        carta.usar(jugador);
     }
 
     public void ponerAbajo(Carta carta){

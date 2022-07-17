@@ -18,7 +18,7 @@ public class Leer {
                 if (((op < 1) || (op > max)) && (op != -1)) {
                     Mostrar.error("La opcion no es valida");
                 }
-                System.out.print("\n\t" + msj);
+                System.out.print("\n" + msj);
                 String l = leer.next();
                 op = Integer.parseInt(l);
             } while ((op < 1) || (op > max));
