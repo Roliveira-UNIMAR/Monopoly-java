@@ -10,7 +10,7 @@ public class Tablero {
     public static Baraja fortuna = new Baraja();
     
     public static void iniciar() {
-        Propiedad[] propiedades = Archivo.getPropiedades();
+        ColorPropiedad[] propiedades = Archivo.getPropiedades();
         
         Casilla salida = new Casilla(0, "SALIDA") {
             @Override
@@ -30,7 +30,7 @@ public class Tablero {
         Casilla irCarcel = new Casilla(30, "VÁYASE A LA CÁRCEL") {
             @Override
             public void hacer(Jugador actualJugador) { 
-                        Carcel.enviarACarcel(actualJugador);
+                       Carcel.enviarACarcel(actualJugador);
             }
         };
         
@@ -39,7 +39,7 @@ public class Tablero {
         tablero[2] = new TomarCarta(2, "ARCA COMUNAL", arcaComunal);
         tablero[3] = propiedades[1];
         tablero[4] = new Impuesto(4, "IMPUESTO SOBRE INGRESOS PÁGUESE", 200);
-        tablero[5] = new Ferrocaril(5, "FERROCARRIL READING");
+        tablero[5] = new Ferrocarril(5, "FERROCARRIL READING");
         tablero[6] = propiedades[2];
         tablero[7] = new TomarCarta(7, "FORTUNA", fortuna);
         tablero[8] = propiedades[3];
@@ -49,7 +49,7 @@ public class Tablero {
         tablero[12] = new Sevicio(12, "COMPAÑÍA DE ELECTRICIDAD");
         tablero[13] = propiedades[6];
         tablero[14] = propiedades[7];
-        tablero[15] = new Ferrocaril(15, "FERROCARRIL PENSYLVANIA");
+        tablero[15] = new Ferrocarril(15, "FERROCARRIL PENSYLVANIA");
         tablero[16] = propiedades[8];
         tablero[17] = new TomarCarta(17, "ARCA COMUNAL", arcaComunal);
         tablero[18] = propiedades[9];
@@ -59,7 +59,7 @@ public class Tablero {
         tablero[22] = new TomarCarta(22, "FORTUNA", fortuna);
         tablero[23] = propiedades[12];
         tablero[24] = propiedades[13];
-        tablero[25] = new Ferrocaril(25, "FERROCARRIL B. & O.");
+        tablero[25] = new Ferrocarril(25, "FERROCARRIL B. & O.");
         tablero[26] = propiedades[14];
         tablero[27] = propiedades[15];
         tablero[28] = new Sevicio(28, "COMPAÑÍA DE AGUA");
@@ -69,7 +69,7 @@ public class Tablero {
         tablero[32] = propiedades[18];
         tablero[33] = new TomarCarta(33, "ARCA COMUNAL", arcaComunal);
         tablero[34] = propiedades[19];
-        tablero[35] = new Ferrocaril(35, "FERROCARRIL VÍA RÁPIDA");
+        tablero[35] = new Ferrocarril(35, "FERROCARRIL VÍA RÁPIDA");
         tablero[36] = new TomarCarta(36, "FORTUNA", fortuna);
         tablero[37] = propiedades[20];
         tablero[38] = new Impuesto(38, "IMPUESTO SOBRE POSESIONES DE LUJO PÁGUENSE", 100);
