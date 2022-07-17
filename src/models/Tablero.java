@@ -2,7 +2,10 @@ package models;
 
 /**
  *
- * @author Rodrigo Oliveira - 29.655.609
+ * @author Rodrigo Oliveira 29.655.609
+ * @author Shaenndry Carreño - 30.299.949
+ * @author Edgar Ruiz - 30.065.695
+ * @author Richard Rivera - 28.570.753
  */
 public class Tablero {
     public static Casilla[] tablero = new Casilla[40];
