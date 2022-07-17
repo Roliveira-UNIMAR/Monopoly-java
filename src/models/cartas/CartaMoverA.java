@@ -10,7 +10,7 @@ import models.Tablero;
 public class CartaMoverA extends Carta {
     private int[] indexs;
 
-    public CartaMoverA(int[] indexs, Tablero tablero, String text){
+    public CartaMoverA(int[] indexs, String text){
         super(text);
         this.indexs = indexs;
     }
@@ -24,6 +24,6 @@ public class CartaMoverA extends Carta {
                 minDistancia = distanciaAIndex;
             }
         }
-        jugador.mover(minDistancia);
+        jugador.moverA(minDistancia);
     }
 }

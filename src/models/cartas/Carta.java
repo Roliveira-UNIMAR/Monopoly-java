@@ -15,8 +15,8 @@ public abstract class Carta {
     }
 
     public void usar(Jugador jugador){
-        hacer(jugador);
         Mostrar.carta(this.description);
+        hacer(jugador);
     }
 
     public abstract void hacer(Jugador jugador);

@@ -13,6 +13,6 @@ public class CartaSalirCarcel extends Carta {
     
     @Override
     public void hacer(Jugador jugador) {
-        jugador.salirCarcel = true;
+        jugador.cartasSalirCarcel++;
     }
 }

@@ -18,7 +18,7 @@ public class CartaTomarPagarTodos extends CartaTomarPagar {
     }
 
     protected static String crearMsj(int cant, String descrip) {
-        return CartaTomarPagar.crearTomarPagar(cant, descrip) + ((cant > 0) ? " de todos los jugadores" : " a todo jugador");
+        return CartaTomarPagar.crearTomarPagar(cant, descrip) + ((cant > 0) ? " DE TODOS LOS JUGADORES" : " A TODOS LOS JUGADORES");
     }
 
     @Override

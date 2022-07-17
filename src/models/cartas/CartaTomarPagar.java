@@ -16,8 +16,8 @@ public class CartaTomarPagar extends Carta {
     }
 
     public static String crearTomarPagar(int cant, String descrip) {
-        String tomarMsj = descrip + ". Toma " + cant + "$";
-        String pagarMsj = descrip + ". Paga " + -cant + "$";
+        String tomarMsj = descrip + ". TOMA " + cant + "$";
+        String pagarMsj = descrip + ". PAGA " + -cant + "$";
         return (cant > 0) ? tomarMsj : pagarMsj;
     }
     
