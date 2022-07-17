@@ -1,96 +1,61 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package models;
 
 /**
  *
- * @author RICHARD RIVERA
+ * @author Richard Rivera - 28.570.753
+ * @author Rodrigo Oliveira 29.655.609
  */
-public class Ferrocarril extends Casilla{
-    private String Propietario;
-    private final String Nombre = "";
-    private int costo;
-    private int CantFerrocar;
-    private final int costoFerrocar = 200;
-    private final int costHipoteca = 100;
-    private boolean Hipoteca = false;
-    int renta[];
+public class Ferrocarril extends Propiedad {
+    private final int costoHipoteca = 100;
     
     public Ferrocarril(){
         super();
-        this.Propietario = null;
-        this.costo = 0;
-        this.CantFerrocar = 0;
-        this.Hipoteca = false;
-        this.renta = new int[4];
     }
     
-    public Ferrocarril(int pos, String n ,int r, int r1, int r2, int r3, int cos, int CosF) {
-        super(pos, n);
-        this.Propietario = null;
-        this.CantFerrocar = CosF;
-        this.costo = cos;
-        this.Hipoteca = false;
-        this.renta = new int[] {r, r1, r2, r3};
-    }
-    
-    public String getPropietario() {
-        return this.Propietario;
-    }
-    
-    public void setPropietario(String ficha) {
-        this.Propietario = ficha;
-    }
-
-    public int getCantFerrocarril() {
-        return this.CantFerrocar;
-    }
-
-    public void setCantFerrocaril() {
-        this.CantFerrocar++;
+    public Ferrocarril(int pos, String n) {
+        super(pos, n, 200);
     }
     
     public int getRenta() {
-        switch (this.CantFerrocar) {
+        int renta = 0;
+        switch (propietario.getCantFerrocarriles()) {
             case 1:
-                return this.renta[1];
+                renta = 25;
             case 2:
-                return this.renta[2];
+                renta = 50;
             case 3:
-                return this.renta[3];
-            default:
-                return this.renta[0];
+                renta = 100;
+            case 4:
+                renta = 200;
         }
-    }
-
-    public int getCostoFerrocarril() {
-        return this.costoFerrocar;
+        return renta;
     }
 
     public int getCostoHipoteca() {
-        return this.costHipoteca;
+        return this.costoHipoteca;
     }
     
     @Override
-    public String toString(){
+    public String toString() {
         String string = "";
-        string += "\n\t" + this.Nombre + "\n\n";
-        string += "Compra: " + this.renta[0] + "$" + "\n\n";
-        string += "Con 1 Ferrocarril: " + this.renta[1] + "$" + "\n";
-        string += "Con 2 Ferrocarriles: " + this.renta[2] + "$" + "\n";
-        string += "Con 3 Ferrocarriles: " + this.renta[3] + "$" + "\n";
-        string += "Con 4 Ferrocarriles: " + this.renta[4] + "$" + "\n";
-        string += "Hipoteca: " + this.costHipoteca + "$" + "\n\n";
-        string += "Los Ferrocarriles cuestan: " + this.costoFerrocar + "$" + "\n";
+        string += "\n\t" + this.nombre + "\n\n"
+                + "Renta: 25$" + "\n"
+                + "Con 2 Ferrocarriles: 50$" + "\n"
+                + "Con 3 Ferrocarriles: 100$" + "\n"
+                + "Con 4 Ferrocarriles: 200$" + "\n"
+                + "Hipoteca: " + this.costoHipoteca + "$" + "\n\n";
         return string;
     }
 
     @Override
     public void hacer(Jugador actualJugador) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        if(propietario == actualJugador) {
+           // No hacer nada
+        } else if ((!hipotecada) && (propietario != actualJugador)) {
+            Mostrar.msj(actualJugador.getNombre() + " paga a " + propietario.getNombre() + " " + getRenta() + "$ de renta");
+                actualJugador.pagar(propietario, getRenta());
+        } else {
+            ofertar(actualJugador);
+        }
     }
-    
-
 }
