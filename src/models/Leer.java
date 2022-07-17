@@ -1,12 +1,11 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package models;
+
 import java.util.Scanner;
+
 /**
  *
- * @author RICHARD RIVERA - 28.570.753
+ * @author Rodrigo Oliveira - 29.655.609
+ * @author Richard Rivera - 28.570.753
  */
 public class Leer {
     
