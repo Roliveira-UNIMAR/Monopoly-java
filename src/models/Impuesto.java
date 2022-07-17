@@ -1,12 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package models;
 
 /**
  *
- * @author RICHARD RIVERA
+ * @author Richard Rivera - 28.570.753
+ * @author Rodrigo Oliveira 29.655.609
  */
 public class Impuesto extends Casilla {
     private int impuesto;
